@@ -17,6 +17,22 @@ mesh.position.y = -0.6
 mesh.position.z = 0.5
 scene.add(mesh)
 
+const ceilingGeometry = new THREE.BoxGeometry(6, 0.5, 2)
+const ceilingMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+const ceilingMesh = new THREE.Mesh(ceilingGeometry, ceilingMaterial)
+ceilingMesh.position.x = 0
+ceilingMesh.position.z = -1
+ceilingMesh.position.y = 2
+scene.add(ceilingMesh)
+
+const floorGeometry = new THREE.BoxGeometry(6, 0.5, 2)
+const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+const floorMesh = new THREE.Mesh(floorGeometry, floorMaterial)
+floorMesh.position.x = 0
+floorMesh.position.z = -1
+floorMesh.position.y = -2
+scene.add(floorMesh)
+
 console.log(mesh.position.length()) // returns length of distance of object position from center of scene
 console.log(mesh.position.distanceTo(new THREE.Vector3(0,1,2))) // returns distance from another vector3
 
