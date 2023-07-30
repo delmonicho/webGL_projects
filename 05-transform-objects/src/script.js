@@ -7,30 +7,32 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 /**
+ * Axes Helper
+ */
+const axesHelper = new THREE.AxesHelper(2)
+scene.add(axesHelper)
+
+/**
  * Objects
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
 const mesh = new THREE.Mesh(geometry, material)
-mesh.position.x = 0.7
-mesh.position.y = -0.6
-mesh.position.z = 0.5
+mesh.position.set(0.7, -0.6, 0.5)
+mesh.scale.set(2, 0.25, 0.5)
+mesh.rotation.set( Math.PI * 0.25, Math.PI * 0.25, 0)
 scene.add(mesh)
 
 const ceilingGeometry = new THREE.BoxGeometry(6, 0.5, 2)
 const ceilingMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const ceilingMesh = new THREE.Mesh(ceilingGeometry, ceilingMaterial)
-ceilingMesh.position.x = 0
-ceilingMesh.position.z = -1
-ceilingMesh.position.y = 2
+ceilingMesh.position.set(0, 2, -1)
 scene.add(ceilingMesh)
 
 const floorGeometry = new THREE.BoxGeometry(6, 0.5, 2)
 const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const floorMesh = new THREE.Mesh(floorGeometry, floorMaterial)
-floorMesh.position.x = 0
-floorMesh.position.z = -1
-floorMesh.position.y = -2
+floorMesh.position.set(0, -2, -1)
 scene.add(floorMesh)
 
 console.log(mesh.position.length()) // returns length of distance of object position from center of scene
@@ -50,6 +52,7 @@ const sizes = {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 camera.position.z = 3
 scene.add(camera)
+//camera.lookAt(new THREE.Vector3(0, - 1, 0))
 
 /**
  * Renderer
