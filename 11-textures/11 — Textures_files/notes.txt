@@ -1,0 +1,13 @@
+🚀 June Update
+
+Since the version 0.152 of Three.js, colors might look different by default.
+
+In order to get the same result as in the lessons, those two lines have been added to the code:
+
+// Start of the code
+THREE.ColorManagement.enabled = false
+
+// After instantiating the renderer
+renderer.outputColorSpace = THREE.LinearSRGBColorSpace
+You'll discover those properties later in the course.
+
